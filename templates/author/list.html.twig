@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h1>le nombre des authors est: {{lesAuthors | length}} </h1> {# afficher le nombre des authors #}
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Pictures</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Nb_books</th>
+    </tr>
+    {# Add your data here #}
+    {% for a in lesAuthors %}
+    <tr>
+        <td>{{ a.id }}</td>
+        <td><img src="{{ a.picture }}" alt="picture" width="100px" height="100px"></td>
+        <td>{{ a.username | upper }}</td> {#  afficher les nom des authors en majuscule #}
+        <td>{{ a.email }}</td>
+        <td>{{ a.nb_books }}</td>
+        {% else %}
+        <h1>No authors found</h1>  {# condition si le tableau est vide #}
+         {% endfor %} 
+</table>
+{% set nbTotal=0 %} {# declarer une variable pour initialier le compteur à zero #}
+{% for a in lesAuthors %} {# parcourir le tableau #}
+{% set nbTotal=nbTotal+a.nb_books %} {# incrementer le compteur #}
+{% endfor %}
+<p>le nombre total des livres est: {{ nbTotal }}</p> {# afficher le nombre total des livres #}
+</body>
+</html>
