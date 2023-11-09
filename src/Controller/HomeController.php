@@ -19,7 +19,7 @@ class HomeController extends AbstractController
 #[Route('/affiche', name: 'app_affiche')]
     public function Affiche()
    { 
-    return new Response("<h1>Bonjour mes etudiants</h1>");
+    return new Response("<h1>Bonjour mes etudiants</h1>"); //affichage d'un message sans passer par une vue
    }
 
 

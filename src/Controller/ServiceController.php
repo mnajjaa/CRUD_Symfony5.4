@@ -18,6 +18,6 @@ class ServiceController extends AbstractController
 
     #[Route('/showService/{name}', name: 'app_showService')]
     public function showService($name){
-        return $this->render('service/showService.html.twig',['esmo'=>$name]);
+        return $this->render('service/showService.html.twig',['esmo'=>$name]); 
     }
 }
